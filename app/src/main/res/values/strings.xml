@@ -3,4 +3,10 @@
     <string name="app_name">Asystent gotowania</string>
     <string name="recipe_list_title">Przepisy</string>
     <string name="cooking_title">Gotowanie: %1$s</string>
+    <string name="cooking_step_progress">Krok %1$d z %2$d</string>
+    <string name="cooking_step_time">Czas: %1$s min</string>
+    <string name="cooking_previous_step">Wstecz</string>
+    <string name="cooking_next_step">Dalej</string>
+    <string name="cooking_repeat_step">Powtórz</string>
+    <string name="cooking_exit">Wyjdź do listy</string>
 </resources>
