@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Asystent gotowania</string>
+    <string name="recipe_list_title">Przepisy</string>
+    <string name="cooking_title">Gotowanie: %1$s</string>
+</resources>
