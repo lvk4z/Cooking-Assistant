@@ -11,7 +11,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -71,16 +70,14 @@ fun CookingScreen(
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.cooking_title, state.recipe.title),
-                    style = MaterialTheme.typography.titleLarge
+                    text = stringResource(R.string.cooking_title, state.recipe.title)
                 )
                 Text(
                     text = stringResource(
                         R.string.cooking_step_progress,
                         state.currentStepIndex + 1,
                         state.recipe.steps.size
-                    ),
-                    style = MaterialTheme.typography.titleLarge
+                    )
                 )
                 Text(
                     text = step.text,
@@ -91,8 +88,7 @@ fun CookingScreen(
                         maximumFractionDigits = 2
                     }.format(seconds / 60.0)
                     Text(
-                        text = stringResource(R.string.cooking_step_time, minutes),
-                        style = MaterialTheme.typography.titleLarge
+                        text = stringResource(R.string.cooking_step_time, minutes)
                     )
                 }
             }
@@ -108,10 +104,7 @@ fun CookingScreen(
                     .weight(1f)
                     .heightIn(min = 72.dp)
             ) {
-                Text(
-                    text = stringResource(R.string.cooking_previous_step),
-                    style = MaterialTheme.typography.titleLarge
-                )
+                Text(text = stringResource(R.string.cooking_previous_step))
             }
             Button(
                 onClick = onNextStep,
@@ -120,37 +113,34 @@ fun CookingScreen(
                     .weight(1f)
                     .heightIn(min = 72.dp)
             ) {
-                Text(
-                    text = stringResource(R.string.cooking_next_step),
-                    style = MaterialTheme.typography.titleLarge
-                )
+                Text(text = stringResource(R.string.cooking_next_step))
             }
         }
-        Button(
-            onClick = { ttsManager?.speak(step.text) },
-            enabled = ttsManager != null,
+        Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(min = 72.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Text(
-                text = stringResource(R.string.cooking_repeat_step),
-                style = MaterialTheme.typography.titleLarge
-            )
-        }
-        OutlinedButton(
-            onClick = {
-                ttsManager?.stop()
-                onExit()
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(min = 64.dp)
-        ) {
-            Text(
-                text = stringResource(R.string.cooking_exit),
-                style = MaterialTheme.typography.titleLarge
-            )
+            Button(
+                onClick = { ttsManager?.speak(step.text) },
+                enabled = ttsManager != null,
+                modifier = Modifier
+                    .weight(1f)
+                    .heightIn(min = 72.dp)
+            ) {
+                Text(text = stringResource(R.string.cooking_repeat_step))
+            }
+            Button(
+                onClick = {
+                    ttsManager?.stop()
+                    onExit()
+                },
+                modifier = Modifier
+                    .weight(1f)
+                    .heightIn(min = 72.dp)
+            ) {
+                Text(text = stringResource(R.string.cooking_exit))
+            }
         }
     }
 }

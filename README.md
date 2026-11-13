@@ -12,9 +12,9 @@ czasu.
 ## Funkcje
 
 ### MUST
-- [x] **Bezdotykowa nawigacja** – komendy głosowe: „dalej", „wstecz", „powtórz"
+- [ ] **Bezdotykowa nawigacja** – komendy głosowe: „dalej", „wstecz", „powtórz"
 - [x] **Synteza mowy (TTS)** – aplikacja czyta na głos kolejne kroki
-- [x] **Minutniki w tle** – automatyczne uruchamianie timera dla kroku,
+- [ ] **Minutniki w tle** – automatyczne uruchamianie timera dla kroku,
       śledzenie wielu timerów naraz, powiadomienia dźwiękowe
 
 ### COULD
@@ -35,6 +35,9 @@ app/
 
 
 ## Plan rozwoju
+
+Opis całego aktualnego kodu, ograniczeń, zmiany głosu TTS i kolejnych etapów:
+[Wyjaśnienie projektu i plan rozwoju](WYJASNIENIE_PROJEKTU.md).
 
 - [x] Szkielet projektu, model danych, lista przepisów
 - [x] Ekran gotowania + TTS
