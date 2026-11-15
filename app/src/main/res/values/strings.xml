@@ -2,6 +2,14 @@
 <resources>
     <string name="app_name">Asystent gotowania</string>
     <string name="recipe_list_title">Przepisy</string>
+    <string name="speech_result">tts: %1$s</string>
+    <string name="speech_unavailable">Rozpoznawanie mowy jest niedostępne na tym urządzeniu.</string>
+    <string name="speech_permission_denied">Brak zgody na mikrofon. Transkrypcja jest wyłączona.</string>
+    <string name="speech_error">Błąd rozpoznawania mowy: %1$d</string>
+    <string name="speech_retry">Włącz słuchanie</string>
+    <string name="timer_remaining">Krok %1$d: %2$d:%3$02d</string>
+    <string name="timer_finished">Krok %1$d: czas minął</string>
+    <string name="timer_restart">Uruchom minutnik ponownie</string>
     <string name="cooking_title">Gotowanie: %1$s</string>
     <string name="cooking_step_progress">Krok %1$d z %2$d</string>
     <string name="cooking_step_time">Czas: %1$s min</string>

@@ -16,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -34,6 +33,7 @@ fun CookingScreen(
     state: CookingUiState,
     onNextStep: () -> Unit,
     onPreviousStep: () -> Unit,
+    onRestartTimer: () -> Unit,
     onExit: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -62,36 +62,52 @@ fun CookingScreen(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        key(state.currentStepIndex) {
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState()),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                Text(
-                    text = stringResource(R.string.cooking_title, state.recipe.title)
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Text(
+                text = stringResource(R.string.cooking_title, state.recipe.title)
+            )
+            Text(
+                text = stringResource(
+                    R.string.cooking_step_progress,
+                    state.currentStepIndex + 1,
+                    state.recipe.steps.size
                 )
+            )
+            Text(
+                text = step.text,
+                style = MaterialTheme.typography.headlineLarge
+            )
+            step.timerSeconds?.let { seconds ->
+                val minutes = NumberFormat.getNumberInstance().apply {
+                    maximumFractionDigits = 2
+                }.format(seconds / 60.0)
                 Text(
-                    text = stringResource(
-                        R.string.cooking_step_progress,
-                        state.currentStepIndex + 1,
-                        state.recipe.steps.size
-                    )
+                    text = stringResource(R.string.cooking_step_time, minutes)
                 )
-                Text(
-                    text = step.text,
-                    style = MaterialTheme.typography.headlineLarge
-                )
-                step.timerSeconds?.let { seconds ->
-                    val minutes = NumberFormat.getNumberInstance().apply {
-                        maximumFractionDigits = 2
-                    }.format(seconds / 60.0)
-                    Text(
-                        text = stringResource(R.string.cooking_step_time, minutes)
-                    )
+                Button(onClick = onRestartTimer) {
+                    Text(text = stringResource(R.string.timer_restart))
                 }
             }
+            state.timers.forEach { timer ->
+                Text(
+                    text = if (timer.remainingSeconds == 0) {
+                        stringResource(R.string.timer_finished, timer.stepIndex + 1)
+                    } else {
+                        stringResource(
+                            R.string.timer_remaining,
+                            timer.stepIndex + 1,
+                            timer.remainingSeconds / 60,
+                            timer.remainingSeconds % 60
+                        )
+                    }
+                )
+            }
+            SpeechTranscription()
         }
         Row(
             modifier = Modifier.fillMaxWidth(),

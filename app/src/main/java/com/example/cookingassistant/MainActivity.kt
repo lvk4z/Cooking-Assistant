@@ -80,6 +80,7 @@ class MainActivity : ComponentActivity() {
                                         state = state,
                                         onNextStep = cookingViewModel::nextStep,
                                         onPreviousStep = cookingViewModel::previousStep,
+                                        onRestartTimer = cookingViewModel::restartCurrentTimer,
                                         onExit = {
                                             Log.d("CookingAssistant", "Exit cooking")
                                             if (backStack.size > 1) {

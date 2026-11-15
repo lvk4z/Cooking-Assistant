@@ -36,15 +36,19 @@ app/
 
 ## Plan rozwoju
 
-Opis całego aktualnego kodu, ograniczeń, zmiany głosu TTS i kolejnych etapów:
-[Wyjaśnienie projektu i plan rozwoju](WYJASNIENIE_PROJEKTU.md).
-
-- [x] Szkielet projektu, model danych, lista przepisów
-- [x] Ekran gotowania + TTS
-- [ ] Komendy głosowe
-- [ ] Timery w tle + powiadomienia
-- [ ] Gesty (proximity, potem kamera)
-- [ ] Dodawanie własnych przepisów
+| Tydzień | Termin | Planowane elementy |
+|---|---|---|
+| 1 | 26.10–01.11.2026 | Szkielet aplikacji, model danych i lista przepisów |
+| 2 | 02.11–08.11.2026 | Ekran gotowania, nawigacja między krokami i TTS |
+| 3 | 09.11–15.11.2026 | Transkrypcja mowy, zgoda na mikrofon i podstawowe minutniki kroków |
+| 4 | 16.11–22.11.2026 | Komendy głosowe: dalej, wstecz i powtórz |
+| 5 | 23.11–29.11.2026 | Koordynacja nasłuchu z TTS i obsługa błędów rozpoznawania |
+| 6 | 30.11–06.12.2026 | Minutniki działające w tle i powiadomienia dźwiękowe |
+| 7 | 07.12–13.12.2026 | Testowanie minutników oraz przywracanie postępu gotowania |
+| 8 | 14.12–20.12.2026 | Baza Room i zapisywanie przepisów |
+| 9 | 21.12–27.12.2026 | Dodawanie i edycja własnych przepisów |
+| 10 | 28.12.2026–03.01.2027 | Opcjonalnie: obsługa gestów czujnikiem zbliżeniowym |
+| 11 | 04.01–10.01.2027 | Testy na telefonie, poprawki i przygotowanie aplikacji do oddania |
 
 
 ## Autor
