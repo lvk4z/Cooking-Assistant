@@ -21,19 +21,6 @@ czasu.
 - [ ] **Gesty** – przesunięcie dłoni nad telefonem (czujnik zbliżeniowy)
       lub rozpoznawanie gestów kamerą (MediaPipe)
 
-
-## Architektura
-
-```
-app/
-├── data/        # model Recipe, Step, repozytorium, Room
-├── voice/       # TtsManager, VoiceCommandListener
-├── timer/       # TimerService, TimerManager, powiadomienia
-├── gesture/     # ProximityGestureDetector (COULD)
-└── ui/          # ekrany Compose: lista przepisów, tryb gotowania
-```
-
-
 ## Plan rozwoju
 
 | Tydzień | Termin | Planowane elementy |
